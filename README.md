@@ -19,3 +19,11 @@ git remote add origin $(gh repo view dockercomposenginxessentials --json url | j
 
 git remote -v # show origin of the project 
 ```
+
+## Docker compose related command 
+
+```bash
+
+docker compose config 
+docker compose config --services 
+```

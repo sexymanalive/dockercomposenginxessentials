@@ -1,0 +1,32 @@
+services: 
+  first-nginx: 
+    extends: 
+      file: base/common-service.yaml
+      service: nginx-service
+    container_name: first-nginx-container
+    ports: 
+      - 9999:80
+    networks: 
+      nginx-network: 
+        ipv4_address: 192.168.0.10
+  second-nginx: 
+    extends: 
+      file: base/common-service.yaml
+      service: nginx-service
+    container_name: second-nginx-container
+    networks: 
+      - nginx-network
+  third-nginx: 
+    extends: 
+      file: base/common-service.yaml
+      service: nginx-service
+    container_name: third-nginx-container
+    networks: 
+      - nginx-network
+networks: 
+  nginx-network: 
+    ipam: 
+      driver: default 
+      config: 
+        - subnet: 192.168.0.0/24
+          gateway: 192.168.0.1
