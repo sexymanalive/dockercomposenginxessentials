@@ -6,6 +6,8 @@ services:
     container_name: first-nginx-container
     ports: 
       - 9999:80
+    volumes:
+      - ./nginx/html/index1.html:/usr/share/nginx/html/index.html
     networks: 
       nginx-network: 
         ipv4_address: 192.168.0.10
@@ -14,6 +16,10 @@ services:
       file: base/common-service.yaml
       service: nginx-service
     container_name: second-nginx-container
+    volumes:
+      - ./nginx/html/index2.html:/usr/share/nginx/html/index.html
+    ports: 
+      - 8888:80
     networks: 
       - nginx-network
   third-nginx: 
@@ -21,6 +27,10 @@ services:
       file: base/common-service.yaml
       service: nginx-service
     container_name: third-nginx-container
+    ports: 
+      - 7777:80
+    volumes:
+      - ./nginx/html/index3.html:/usr/share/nginx/html/index.html
     networks: 
       - nginx-network
 networks: 

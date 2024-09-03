@@ -26,4 +26,7 @@ git remote -v # show origin of the project
 
 docker compose config 
 docker compose config --services 
+
+docker compose down 
+docker compse down --volumes or -v # erase the volumes
 ```
