@@ -29,4 +29,19 @@ docker compose config --services
 
 docker compose down 
 docker compse down --volumes or -v # erase the volumes
+docker logs -f container-name 
+docker compose logs first-nginx second-nginx third-nginx
+```
+
+
+## Apache Benchmark 
+
+```bash
+sudo apt update 
+sudo apt install apache2-utils -y 
+ab 
+
+ab -n [number of requests] -c [concurrent requests] http://[hostname]/
+ab -n 1000 -c 10 http://localhost:8888/
+
 ```
